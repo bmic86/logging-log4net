@@ -88,7 +88,7 @@ namespace log4net.Tests.Util
 			Assert.AreSame(typeof(SystemInfoTest), t, "Test explicit case in-sensitive type load lower");
 		}
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		[Test][Platform(Include="Win")]
 		public void TestGetTypeFromStringCaseInsensitiveOnAssemblyName()
 		{

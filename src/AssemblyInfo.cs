@@ -108,6 +108,9 @@ using System.Runtime.CompilerServices;
 #elif (NETSTANDARD1_3)
 [assembly: AssemblyInformationalVersionAttribute("2.0.9.0-.NET Core 1.0")]
 [assembly: AssemblyTitle("Apache log4net for .NET Core 1.0")]
+#elif (NETSTANDARD2_0)
+[assembly: AssemblyInformationalVersionAttribute("2.0.9.0-.NET Core 2.0")]
+[assembly: AssemblyTitle("Apache log4net for .NET Core 2.0")]
 #elif (NETCF)
 [assembly: AssemblyInformationalVersionAttribute("2.0.9.0-.NETCF")]
 [assembly: AssemblyTitle("Apache log4net for .NET Compact Framework")]

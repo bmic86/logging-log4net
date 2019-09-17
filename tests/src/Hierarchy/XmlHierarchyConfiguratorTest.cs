@@ -45,7 +45,7 @@ namespace log4net.Tests.Hierarchy
 	    }
 	}
 
-#if !NETSTANDARD1_3 // TODO write replacement test
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0 // TODO write replacement test
 	[Test][Platform(Include="Win")]
 	public void EnvironmentOnWindowsIsCaseInsensitive()
 	{
@@ -61,7 +61,7 @@ namespace log4net.Tests.Hierarchy
 	}
 #endif
 
-	private void SetTestPropWithPath()
+		private void SetTestPropWithPath()
 	{
 	    XmlDocument doc = new XmlDocument();
 	    XmlElement el = doc.CreateElement("param");

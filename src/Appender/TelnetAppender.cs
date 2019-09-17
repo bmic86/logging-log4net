@@ -25,7 +25,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.IO;
 using System.Threading;
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 using System.Threading.Tasks;
 #endif
 using log4net.Layout;
@@ -344,7 +344,7 @@ namespace log4net.Appender
 
 			private void AcceptConnection()
 			{
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 				m_serverSocket.AcceptAsync().ContinueWith(OnConnect, TaskScheduler.Default);
 #else
 				m_serverSocket.BeginAccept(new AsyncCallback(OnConnect), null);
@@ -429,9 +429,9 @@ namespace log4net.Appender
 					return (localClients != null && localClients.Count > 0);
 				}
 			}
-			
 
-#if NETSTANDARD1_3
+
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 			private void OnConnect(Task<Socket> acceptTask)
 #else
 			/// <summary>
@@ -449,7 +449,7 @@ namespace log4net.Appender
 			{
 				try
 				{
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 					Socket socket = acceptTask.GetAwaiter().GetResult();
 #else
 					// Block until a client connects
